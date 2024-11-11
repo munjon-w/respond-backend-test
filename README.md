@@ -1,8 +1,4 @@
-
 # Respond Note With User Backend Test
-
-
-
 
 ## Environment Variables
 
@@ -11,7 +7,6 @@ To run this project, you will need to add the following environment variables to
 `API_KEY`=mysql
 
 `JWT_SECRET`=secret
-
 
 ### Optional env are listed below
 
@@ -23,6 +18,8 @@ To run this project, you will need to add the following environment variables to
 
 `DB_HOST`
 
+`PORT`
+
 ## Installation
 
 Require to install Docker
@@ -32,15 +29,19 @@ Require to install Docker
 npm install
 
 docker compose up
+
 ## API Reference
+
+Default Dev Domain: http://localhost:5001
 
 #### Refresh Access Token
 
 ```http
   GET /api/auth/refresh
 ```
-| Cookie | Type     | Description                |
-| :-------- | :------- | :------------------------- |
+
+| Cookie         | Type     | Description                      |
+| :------------- | :------- | :------------------------------- |
 | `refreshToken` | `string` | **Required**. Your Refresh token |
 
 #### Register
@@ -49,12 +50,11 @@ docker compose up
   PUT /api/auth/register
 ```
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `username`      | `string` | **Required**. Username |
-| `password`      | `string` | **Required**. Password |
-| `displayName`      | `string` | **Required**. Display Name |
-
+| Parameter     | Type     | Description                |
+| :------------ | :------- | :------------------------- |
+| `username`    | `string` | **Required**. Username     |
+| `password`    | `string` | **Required**. Password     |
+| `displayName` | `string` | **Required**. Display Name |
 
 #### Login
 
@@ -62,10 +62,10 @@ docker compose up
   POST /api/auth/login
 ```
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `username`      | `string` | **Required**. Username |
-| `password`      | `string` | **Required**. Password |
+| Parameter  | Type     | Description            |
+| :--------- | :------- | :--------------------- |
+| `username` | `string` | **Required**. Username |
+| `password` | `string` | **Required**. Password |
 
 #### Logout
 
@@ -78,67 +78,71 @@ docker compose up
 ```http
   GET /api/note/all
 ```
-| Cookie | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `accessToken` | `string` | **Required**. Access token |
 
+| Cookie        | Type     | Description                |
+| :------------ | :------- | :------------------------- |
+| `accessToken` | `string` | **Required**. Access token |
 
 #### Get Specific Note
 
 ```http
   GET /api/note/:noteId
 ```
-| Cookie | Type     | Description                |
-| :-------- | :------- | :------------------------- |
+
+| Cookie        | Type     | Description                |
+| :------------ | :------- | :------------------------- |
 | `accessToken` | `string` | **Required**. Access token |
 
-| URL Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `noteId` | `string` | **Required**. Note id e.g. 1 |
+| URL Parameter | Type     | Description                  |
+| :------------ | :------- | :--------------------------- |
+| `noteId`      | `string` | **Required**. Note id e.g. 1 |
 
 #### Create Note
 
 ```http
   PUT /api/note/create
 ```
-| Cookie | Type     | Description                |
-| :-------- | :------- | :------------------------- |
+
+| Cookie        | Type     | Description                |
+| :------------ | :------- | :------------------------- |
 | `accessToken` | `string` | **Required**. Access token |
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `type`      | `string` | **Required**. "work" or "personal" |
-| `title`      | `string` | **Required**. Password |
-| `content`      | `string` | **Required**. Password |
+| Parameter | Type     | Description                        |
+| :-------- | :------- | :--------------------------------- |
+| `type`    | `string` | **Required**. "work" or "personal" |
+| `title`   | `string` | **Required**. Password             |
+| `content` | `string` | **Required**. Password             |
 
 #### Delete Note
 
 ```http
   DELETE /api/note/:noteId/delete
 ```
-| Cookie | Type     | Description                |
-| :-------- | :------- | :------------------------- |
+
+| Cookie        | Type     | Description                |
+| :------------ | :------- | :------------------------- |
 | `accessToken` | `string` | **Required**. Access token |
 
-| URL Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `noteId` | `string` | **Required**. Note id e.g. 1 |
+| URL Parameter | Type     | Description                  |
+| :------------ | :------- | :--------------------------- |
+| `noteId`      | `string` | **Required**. Note id e.g. 1 |
 
 #### Update Note
 
 ```http
   PATCH /api/note/:noteId/update
 ```
-| Cookie | Type     | Description                |
-| :-------- | :------- | :------------------------- |
+
+| Cookie        | Type     | Description                |
+| :------------ | :------- | :------------------------- |
 | `accessToken` | `string` | **Required**. Access token |
 
-| URL Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `noteId` | `string` | **Required**. Note id e.g. 1 |
+| URL Parameter | Type     | Description                  |
+| :------------ | :------- | :--------------------------- |
+| `noteId`      | `string` | **Required**. Note id e.g. 1 |
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `type`      | `string` | **Required**. "work" or "personal" |
-| `title`      | `string` | **Required**. Password |
-| `content`      | `string` | **Required**. Password |
+| Parameter | Type     | Description                        |
+| :-------- | :------- | :--------------------------------- |
+| `type`    | `string` | **Required**. "work" or "personal" |
+| `title`   | `string` | **Required**. Password             |
+| `content` | `string` | **Required**. Password             |

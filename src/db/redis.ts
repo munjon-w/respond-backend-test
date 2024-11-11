@@ -7,7 +7,4 @@ export default async () => {
     .on("error", (err) => console.log("Redis Client Error", err))
     .connect()
   return client
-  // await client.set('key', 'value');
-  // const value = await client.get('key');
-  // await client.disconnect();
 }
