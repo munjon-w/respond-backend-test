@@ -1,5 +1,13 @@
 # Respond Note With User Backend Test
 
+A simple note taking backend that feature user and authentication.
+
+All note operation require authenticated user, any note operation are only available for the owner.
+
+Authentication rely on Json web token methods.
+
+Frequently accessed note (more than 5 in a day) are cached for quicker retriever.
+
 ## Environment Variables
 
 To run this project, you will need to add the following environment variables to your .env file placed at root of this project, example value are provided
