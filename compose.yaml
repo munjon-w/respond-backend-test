@@ -1,0 +1,29 @@
+services:
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: "exit 0"
+  mysql:
+    image: "mysql:latest"
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: "db"
+      MYSQL_USER: "dbuser"
+      MYSQL_PASSWORD: "dbpassword"
+      MYSQL_ROOT_PASSWORD: "rootpassword"
+    healthcheck:
+      test: "exit 0"
+  backend:
+    build: .
+    ports:
+      - "5001:5001"
+    volumes:
+      - ./src:/app/src
+    depends_on:
+      redis:
+        condition: service_healthy
+      mysql:
+        condition: service_healthy
